@@ -538,7 +538,7 @@ class App implements \ArrayAccess {
             $root = \str_replace(DIRECTORY_SEPARATOR, '/', $this['docs_root']);
 
             $url = '/'.\ltrim(\str_replace($root, '', $file), '/');
-            $url = \implode('/', \array_map('rawurlencode', explode('/', $url)));
+            $url = $this->registry['base_url'] . \implode('/', \array_map('rawurlencode', explode('/', $url)));
 
             if ($full) {
                 $url = \rtrim($this->registry['site_url'], '/').$url;
