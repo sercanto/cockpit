@@ -28,6 +28,10 @@ class Client {
                 $this->driver->auth($options['auth']);
             }
 
+            if (isset($options['db']) && is_numeric($options['db'])) {
+                $this->driver->select($options['db']);
+            }
+
             // use custom prefix on all keys
             if (isset($options['prefix']) && $options['prefix']) {
                 $this->driver->setOption(\Redis::OPT_PREFIX, $options['prefix']);
